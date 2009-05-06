@@ -1,0 +1,14 @@
+---
+abstract: BeLike::RJBS when you build your dists
+author:
+- Ricardo SIGNES <rjbs@cpan.org>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.091260
+license: perl
+name: Dist-Zilla-PluginBundle-RJBS
+requires:
+  Dist::Zilla: '1.091260'
+  Dist::Zilla::Plugin::PodPurler: '0'
+  Dist::Zilla::Plugin::Repository: '0'
+resources:
+  repository: http://github.com/rjbs/dist-zilla-pluginbundle-rjbs/tree
+version: '0.091260'
