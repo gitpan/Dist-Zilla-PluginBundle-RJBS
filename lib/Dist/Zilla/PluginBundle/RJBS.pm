@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.091260';
+our $VERSION = '0.091320';
 
 
 # ABSTRACT: BeLike::RJBS when you build your dists
@@ -24,6 +24,7 @@ sub bundle_config {
 
   push @plugins, (
     [ 'Dist::Zilla::Plugin::AutoVersion' => { major => $major_version } ],
+    [ 'Dist::Zilla::Plugin::NextRelease' => {                         } ],
     [ 'Dist::Zilla::Plugin::PodPurler'   => {                         } ],
     [ 'Dist::Zilla::Plugin::Repository'  => {                         } ],
   );
@@ -49,7 +50,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.091260
+version 0.091320
 
 =head1 DESCRIPTION
 
@@ -60,6 +61,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
     remove = PodVersion
 
     [AutoVersion]
+    [NextRelease]
     [PodPurler]
     [Repository]
 

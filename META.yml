@@ -11,4 +11,4 @@ requires:
   Dist::Zilla::Plugin::Repository: '0'
 resources:
   repository: http://github.com/rjbs/dist-zilla-pluginbundle-rjbs/tree
-version: '0.091260'
+version: '0.091320'
