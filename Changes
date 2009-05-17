@@ -1,4 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
-0.091320  2009-05-12 12:19:04 UTC
+0.091370  2009-05-17 23:21:33 UTC
+          replace MetaYAML with MetaJSON
+
+0.091320  2009-05-12
           add NextRelease to the bundle
