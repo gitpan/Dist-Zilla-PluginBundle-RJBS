@@ -1,6 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
-0.091370  2009-05-17 23:21:33 UTC
+0.091390  2009-05-19 20:14:43 UTC
+          env var "N" now sets final digit of autoversion
+
+0.091370  2009-05-12
           replace MetaYAML with MetaJSON
 
 0.091320  2009-05-12

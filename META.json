@@ -3,7 +3,7 @@
       "repository" : "http://github.com/rjbs/dist-zilla-pluginbundle-rjbs/tree"
    },
    "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.091370",
-   "version" : "0.091370",
+   "version" : "0.091390",
    "name" : "Dist-Zilla-PluginBundle-RJBS",
    "requires" : {
       "Dist::Zilla::Plugin::PodPurler" : "0",
