@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.091390';
+our $VERSION = '0.091560';
 
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -16,7 +16,8 @@ sub bundle_config {
 
   my $major_version = defined $arg->{version} ? $arg->{version} : 0;
   my $format        = q<{{ $major }}.{{ cldr('yyDDD') }}>
-                    . sprintf '%01u', ($ENV{N} || 0);
+                    . sprintf('%01u', ($ENV{N} || 0))
+                    . ($ENV{DEV} ? (sprintf '_%03u', $ENV{DEV}) : '') ;
 
   my @plugins = Dist::Zilla::PluginBundle::Filter->bundle_config({
     bundle => '@Classic',
@@ -53,22 +54,22 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.091390
+version 0.091560
 
 =head1 DESCRIPTION
 
 This is the plugin bundle that RJBS uses.  It is equivalent to:
 
-    [@Filter]
-    bundle = @Classic
-    remove = PodVersion
-    remove = MetaYAML
+  [@Filter]
+  bundle = @Classic
+  remove = PodVersion
+  remove = MetaYAML
 
-    [AutoVersion]
-    [MetaJSON]
-    [NextRelease]
-    [PodPurler]
-    [Repository]
+  [AutoVersion]
+  [MetaJSON]
+  [NextRelease]
+  [PodPurler]
+  [Repository]
 
 =head1 AUTHOR
 

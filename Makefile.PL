@@ -8,8 +8,8 @@ WriteMakefile(
   DISTNAME  => 'Dist-Zilla-PluginBundle-RJBS',
   NAME      => 'Dist::Zilla::PluginBundle::RJBS',
   AUTHOR    => 'Ricardo\ SIGNES\ \<rjbs\@cpan\.org\>',
-  ABSTRACT  => 'BeLike::RJBS when you build your dists',
-  VERSION   => '0.091390',
+  ABSTRACT  => 'BeLike\:\:RJBS\ when\ you\ build\ your\ dists',
+  VERSION   => '0.091560',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
