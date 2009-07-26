@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.091560';
+our $VERSION = '0.092070';
 
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -24,18 +24,19 @@ sub bundle_config {
     remove => [ qw(PodVersion MetaYAML MetaYaml) ],
   });
 
-  push @plugins, (
-    [ 'Dist::Zilla::Plugin::AutoVersion' =>
-      { major => $major_version, format => $format } ],
-    [ 'Dist::Zilla::Plugin::MetaJSON'    => {      } ],
-    [ 'Dist::Zilla::Plugin::NextRelease' => {      } ],
-    [ 'Dist::Zilla::Plugin::PodPurler'   => {      } ],
-    [ 'Dist::Zilla::Plugin::Repository'  => {      } ],
+  my $prefix = 'Dist::Zilla::Plugin::';
+  my @extra = map {[ "$class/$prefix$_->[0]" => "$prefix$_->[0]" => $_->[1] ]}
+  (
+    [ AutoVersion => { major => $major_version } ],
+    [ MetaJSON    => {                         } ],
+    [ NextRelease => {                         } ],
+    [ PodPurler   => {                         } ],
+    [ Repository  => {                         } ],
   );
 
-  eval "require $_->[0]" or die for @plugins; ## no critic Carp
+  push @plugins, @extra;
 
-  @plugins->map(sub { $_->[1]{'=name'} = "$class/$_->[0]" });
+  eval "require $_->[1]" or die for @plugins; ## no critic Carp
 
   return @plugins;
 }
@@ -54,7 +55,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.091560
+version 0.092070
 
 =head1 DESCRIPTION
 
