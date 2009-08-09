@@ -6,8 +6,8 @@
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092071",
-   "version" : "0.092070",
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092200",
+   "version" : "0.092210",
    "name" : "Dist-Zilla-PluginBundle-RJBS",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"

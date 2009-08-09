@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.092070';
+our $VERSION = '0.092210';
 
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -27,11 +27,11 @@ sub bundle_config {
   my $prefix = 'Dist::Zilla::Plugin::';
   my @extra = map {[ "$class/$prefix$_->[0]" => "$prefix$_->[0]" => $_->[1] ]}
   (
-    [ AutoVersion => { major => $major_version } ],
-    [ MetaJSON    => {                         } ],
-    [ NextRelease => {                         } ],
-    [ PodPurler   => {                         } ],
-    [ Repository  => {                         } ],
+    [ AutoVersion => { major => $major_version, format => $format } ],
+    [ MetaJSON    => {                                            } ],
+    [ NextRelease => {                                            } ],
+    [ PodPurler   => {                                            } ],
+    [ Repository  => {                                            } ],
   );
 
   push @plugins, @extra;
@@ -55,7 +55,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.092070
+version 0.092210
 
 =head1 DESCRIPTION
 
@@ -81,7 +81,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
 This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
 =cut 
 
