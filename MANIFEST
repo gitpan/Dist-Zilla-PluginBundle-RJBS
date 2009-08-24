@@ -5,6 +5,7 @@ META.json
 Makefile.PL
 README
 dist.ini
+lib/Dist/Zilla/App/Command/rjbsver.pm
 lib/Dist/Zilla/PluginBundle/RJBS.pm
 t/compile.t
 t/release-pod-coverage.t
