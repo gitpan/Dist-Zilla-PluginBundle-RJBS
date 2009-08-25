@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.092360';
+our $VERSION = '0.092361';
 
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -27,11 +27,17 @@ sub bundle_config {
   my $prefix = 'Dist::Zilla::Plugin::';
   my @extra = map {[ "$class/$prefix$_->[0]" => "$prefix$_->[0]" => $_->[1] ]}
   (
-    [ AutoVersion => { major => $major_version, format => $format } ],
-    [ MetaJSON    => {                                            } ],
-    [ NextRelease => {                                            } ],
-    [ PodPurler   => {                                            } ],
-    [ Repository  => {                                            } ],
+    [
+      AutoVersion => {
+        major     => $major_version,
+        format    => $format,
+        time_zone => 'America/New_York',
+      }
+    ],
+    [ MetaJSON     => { } ],
+    [ NextRelease  => { } ],
+    [ PodPurler    => { } ],
+    [ Repository   => { } ],
   );
 
   push @plugins, @extra;
@@ -55,7 +61,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.092360
+version 0.092361
 
 =head1 DESCRIPTION
 
