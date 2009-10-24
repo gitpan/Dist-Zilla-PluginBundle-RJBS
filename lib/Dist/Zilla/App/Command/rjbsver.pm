@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Dist::Zilla::App::Command::rjbsver;
-our $VERSION = '0.092830';
+our $VERSION = '0.092970';
 
 
 # ABSTRACT: see what the mantissa for an rjbs-style version is today
@@ -21,7 +21,6 @@ sub run {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -30,11 +29,11 @@ Dist::Zilla::App::Command::rjbsver - see what the mantissa for an rjbs-style ver
 
 =head1 VERSION
 
-version 0.092830
+version 0.092970
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -43,6 +42,5 @@ This software is copyright (c) 2009 by Ricardo SIGNES.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
