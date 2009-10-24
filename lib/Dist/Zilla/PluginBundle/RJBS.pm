@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.092970';
+our $VERSION = '0.092971';
 
 
 # ABSTRACT: BeLike::RJBS when you build your dists
@@ -61,7 +61,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.092970
+version 0.092971
 
 =head1 DESCRIPTION
 
@@ -71,6 +71,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
   bundle = @Classic
   remove = PodVersion
   remove = MetaYAML
+
   [AutoVersion]
   [MetaJSON]
   [NextRelease]
@@ -79,7 +80,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
