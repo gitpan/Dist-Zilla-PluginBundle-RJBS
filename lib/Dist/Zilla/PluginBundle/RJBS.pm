@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.092971';
+our $VERSION = '0.092990';
 
 
 # ABSTRACT: BeLike::RJBS when you build your dists
@@ -12,8 +12,10 @@ with 'Dist::Zilla::Role::PluginBundle';
 use Dist::Zilla::PluginBundle::Filter;
 
 sub bundle_config {
-  my ($self, $arg) = @_;
+  my ($self, $section) = @_;
   my $class = (ref $self) || $self;
+
+  my $arg = $section->{payload};
 
   my $major_version = defined $arg->{version} ? $arg->{version} : 0;
   my $format        = q<{{ $major }}.{{ cldr('yyDDD') }}>
@@ -21,8 +23,11 @@ sub bundle_config {
                     . ($ENV{DEV} ? (sprintf '_%03u', $ENV{DEV}) : '') ;
 
   my @plugins = Dist::Zilla::PluginBundle::Filter->bundle_config({
-    bundle => '@Classic',
-    remove => [ qw(PodVersion MetaYAML MetaYaml) ],
+    name    => "$class/Classic",
+    payload => {
+      bundle => '@Classic',
+      remove => [ qw(PodVersion MetaYAML MetaYaml) ],
+    },
   });
 
   my $prefix = 'Dist::Zilla::Plugin::';
@@ -61,7 +66,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.092971
+version 0.092990
 
 =head1 DESCRIPTION
 

@@ -1,13 +1,13 @@
 {
    "resources" : {
-      "repository" : "http://github.com/rjbs/dist-zilla-pluginbundle-rjbs/tree"
+      "repository" : "http://github.com/rjbs/dist-zilla-pluginbundle-rjbs"
    },
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla version 1.092850",
-   "version" : "0.092971",
+   "generated_by" : "Dist::Zilla version 1.092990",
+   "version" : "0.092990",
    "name" : "Dist-Zilla-PluginBundle-RJBS",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"
@@ -16,7 +16,7 @@
    "requires" : {
       "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
       "Pod::Elemental" : "0.092970",
-      "Dist::Zilla" : "1.092360",
+      "Dist::Zilla" : "1.092990",
       "Dist::Zilla::Plugin::Repository" : "0",
       "Pod::Weaver" : "3.092971"
    },
