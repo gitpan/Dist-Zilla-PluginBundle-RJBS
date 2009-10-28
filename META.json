@@ -7,7 +7,7 @@
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
    "generated_by" : "Dist::Zilla version 1.092990",
-   "version" : "0.092990",
+   "version" : "0.093000",
    "name" : "Dist-Zilla-PluginBundle-RJBS",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"
@@ -15,10 +15,11 @@
    "license" : "perl",
    "requires" : {
       "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
+      "Pod::Elemental::Transformer::WikiDoc" : "0.093001",
       "Pod::Elemental" : "0.092970",
       "Dist::Zilla" : "1.092990",
       "Dist::Zilla::Plugin::Repository" : "0",
-      "Pod::Weaver" : "3.092971"
+      "Pod::Weaver" : "3.093001"
    },
    "abstract" : "BeLike::RJBS when you build your dists"
 }
