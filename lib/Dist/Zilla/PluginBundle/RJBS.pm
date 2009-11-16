@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.093000';
+our $VERSION = '0.093200';
 
 
 # ABSTRACT: BeLike::RJBS when you build your dists
@@ -26,7 +26,7 @@ sub bundle_config {
     name    => "$class/Classic",
     payload => {
       bundle => '@Classic',
-      remove => [ qw(PodVersion MetaYAML MetaYaml) ],
+      remove => [ qw(PodVersion) ],
     },
   });
 
@@ -66,7 +66,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.093000
+version 0.093200
 
 =head1 DESCRIPTION
 

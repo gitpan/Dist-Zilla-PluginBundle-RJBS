@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
-our $VERSION = '0.093000';
+our $VERSION = '0.093200';
 
 
 # ABSTRACT: RJBS's default Pod::Weaver config
@@ -25,19 +25,23 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 0.093000
+version 0.093200
 
 =head1 OVERVIEW
 
 Equivalent to:
 
-=begin wikidoc
+=over
 
-* @Default
-* -WikiDoc
+=item *
 
+@Default
 
-=end wikidoc
+=item *
+
+-WikiDoc
+
+=back
 
 =head1 AUTHOR
 
