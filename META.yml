@@ -1,8 +1,8 @@
 ---
 abstract: 'BeLike::RJBS when you build your dists'
 author:
-  - 'Ricardo SIGNES <rjbs@cpan.org>'
-generated_by: 'Dist::Zilla version 1.093200'
+  - 'Ricardo Signes <rjbs@cpan.org>'
+generated_by: 'Dist::Zilla version 1.093290'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -12,9 +12,10 @@ requires:
   Dist::Zilla: 1.092990
   Dist::Zilla::Plugin::PodWeaver: 3.092971
   Dist::Zilla::Plugin::Repository: 0
+  Dist::Zilla::Plugin::TaskWeaver: 0.093330
   Pod::Elemental: 0.092970
   Pod::Elemental::Transformer::WikiDoc: 0.093001
   Pod::Weaver: 3.093001
 resources:
   repository: http://github.com/rjbs/dist-zilla-pluginbundle-rjbs
-version: 0.093200
+version: 0.093330

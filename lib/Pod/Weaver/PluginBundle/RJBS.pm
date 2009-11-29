@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
-our $VERSION = '0.093200';
+our $VERSION = '0.093330';
 
 
 # ABSTRACT: RJBS's default Pod::Weaver config
@@ -25,7 +25,7 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 0.093200
+version 0.093330
 
 =head1 OVERVIEW
 
@@ -45,11 +45,11 @@ Equivalent to:
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

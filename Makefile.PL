@@ -9,9 +9,9 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
   DISTNAME  => 'Dist-Zilla-PluginBundle-RJBS',
   NAME      => 'Dist::Zilla::PluginBundle::RJBS',
-  AUTHOR    => "Ricardo\ SIGNES\ \<rjbs\@cpan\.org\>",
+  AUTHOR    => "Ricardo\ Signes\ \<rjbs\@cpan\.org\>",
   ABSTRACT  => "BeLike\:\:RJBS\ when\ you\ build\ your\ dists",
-  VERSION   => '0.093200',
+  VERSION   => '0.093330',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
@@ -21,6 +21,7 @@ WriteMakefile(
     "Dist::Zilla" => '1.092990',
     "Dist::Zilla::Plugin::Repository" => '0',
     "Pod::Weaver" => '3.093001',
+    "Dist::Zilla::Plugin::TaskWeaver" => '0.093330',
   },
   test => {TESTS => 't/*.t'}
 );

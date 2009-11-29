@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.093200';
+our $VERSION = '0.093330';
 
 
 # ABSTRACT: BeLike::RJBS when you build your dists
@@ -16,11 +16,7 @@ sub bundle_config {
   my $class = (ref $self) || $self;
 
   my $arg = $section->{payload};
-
-  my $major_version = defined $arg->{version} ? $arg->{version} : 0;
-  my $format        = q<{{ $major }}.{{ cldr('yyDDD') }}>
-                    . sprintf('%01u', ($ENV{N} || 0))
-                    . ($ENV{DEV} ? (sprintf '_%03u', $ENV{DEV}) : '') ;
+  my $is_task = $arg->{task};
 
   my @plugins = Dist::Zilla::PluginBundle::Filter->bundle_config({
     name    => "$class/Classic",
@@ -30,19 +26,33 @@ sub bundle_config {
     },
   });
 
+  my $version_format;
+  my $major_version = 0;
+
+  if ($is_task) {
+    $version_format = q<{{ cldr('yyyyMMdd') }}.>
+                    . sprintf('%03u', ($ENV{N} || 0))
+                    . ($ENV{DEV} ? (sprintf '_%03u', $ENV{DEV}) : '') ;
+  } else {
+    $major_version  = defined $arg->{version} ? $arg->{version} : 0;
+    $version_format = q<{{ $major }}.{{ cldr('yyDDD') }}>
+                    . sprintf('%01u', ($ENV{N} || 0))
+                    . ($ENV{DEV} ? (sprintf '_%03u', $ENV{DEV}) : '') ;
+  }
+
   my $prefix = 'Dist::Zilla::Plugin::';
   my @extra = map {[ "$class/$prefix$_->[0]" => "$prefix$_->[0]" => $_->[1] ]}
   (
     [
       AutoVersion => {
         major     => $major_version,
-        format    => $format,
+        format    => $version_format,
         time_zone => 'America/New_York',
       }
     ],
     [ MetaJSON     => { } ],
     [ NextRelease  => { } ],
-    [ PodWeaver    => { config_plugin => '@RJBS' } ],
+    [ ($is_task ? 'TaskWeaver' : 'PodWeaver') => { config_plugin => '@RJBS' } ],
     [ Repository   => { } ],
   );
 
@@ -66,7 +76,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.093200
+version 0.093330
 
 =head1 DESCRIPTION
 
@@ -85,11 +95,11 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2009 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
