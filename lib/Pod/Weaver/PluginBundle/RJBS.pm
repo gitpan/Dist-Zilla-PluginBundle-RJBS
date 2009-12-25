@@ -1,16 +1,16 @@
 use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
-our $VERSION = '0.093330';
-
-
+our $VERSION = '0.093580';
 # ABSTRACT: RJBS's default Pod::Weaver config
 
 
 sub mvp_bundle_config {
   return (
     [ '@RJBS/Default', 'Pod::Weaver::PluginBundle::Default', {} ],
-    [ '@RJBS/WikiDoc', 'Pod::Weaver::Plugin::WikiDoc',       {} ],
+    [ '@RJBS/List',    'Pod::Weaver::Plugin::Transformer',
+      { 'transformer' => 'List' }
+    ],
   );
 }
 
@@ -25,21 +25,21 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 0.093330
+version 0.093580
 
 =head1 OVERVIEW
 
 Equivalent to:
 
-=over
+=over 4
 
 =item *
 
-@Default
+C<@Default>
 
 =item *
 
--WikiDoc
+C<-Transformer> with L<Pod::Elemental::Transformer::List>
 
 =back
 

@@ -1,7 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.093330';
-
-
+our $VERSION = '0.093580';
 # ABSTRACT: BeLike::RJBS when you build your dists
 
 use Moose;
@@ -76,7 +74,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.093330
+version 0.093580
 
 =head1 DESCRIPTION
 
