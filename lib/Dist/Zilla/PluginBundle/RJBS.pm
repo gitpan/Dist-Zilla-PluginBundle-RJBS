@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.093580';
+our $VERSION = '0.100310';
 # ABSTRACT: BeLike::RJBS when you build your dists
 
 use Moose;
@@ -41,6 +41,7 @@ sub bundle_config {
   my $prefix = 'Dist::Zilla::Plugin::';
   my @extra = map {[ "$class/$prefix$_->[0]" => "$prefix$_->[0]" => $_->[1] ]}
   (
+    [ AutoPrereq  => {} ],
     [
       AutoVersion => {
         major     => $major_version,
@@ -74,7 +75,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.093580
+version 0.100310
 
 =head1 DESCRIPTION
 
@@ -83,7 +84,6 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
   [@Filter]
   bundle = @Classic
   remove = PodVersion
-  remove = MetaYAML
 
   [AutoVersion]
   [MetaJSON]
@@ -97,7 +97,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

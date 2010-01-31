@@ -2,12 +2,12 @@
    "resources" : {
       "repository" : "http://github.com/rjbs/dist-zilla-pluginbundle-rjbs"
    },
+   "generated_by" : "Dist::Zilla version 1.100160",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla version 1.093400",
-   "version" : "0.093580",
+   "version" : "0.100310",
    "name" : "Dist-Zilla-PluginBundle-RJBS",
    "author" : [
       "Ricardo Signes <rjbs@cpan.org>"
@@ -17,9 +17,11 @@
       "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
       "Pod::Elemental" : "0.092970",
       "Pod::Elemental::Transformer::List" : "0",
+      "Dist::Zilla::Plugin::AutoPrereq" : "1.100130",
       "Dist::Zilla" : "1.092990",
+      "ExtUtils::MakeMaker" : "6.11",
       "Dist::Zilla::Plugin::Repository" : "0",
-      "Pod::Weaver" : "3.093530",
+      "Pod::Weaver" : "3.100310",
       "Dist::Zilla::Plugin::TaskWeaver" : "0.093330"
    },
    "abstract" : "BeLike::RJBS when you build your dists"

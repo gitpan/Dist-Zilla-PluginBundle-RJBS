@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+0.100310  2010-01-31 15:41:03 America/New_York
+          fix docs (we do not exclude MetaYAML anymore)
+          add AutoPrereq
+          require latest Pod::Weaver
+
 0.093580  2009-12-24 21:29:10 America/New_York
           replace WikiDoc with List
 

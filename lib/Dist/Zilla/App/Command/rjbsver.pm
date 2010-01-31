@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Dist::Zilla::App::Command::rjbsver;
-our $VERSION = '0.093580';
+our $VERSION = '0.100310';
 # ABSTRACT: see what the mantissa for an rjbs-style version is today
 use Dist::Zilla::App -command;
 
@@ -27,7 +27,7 @@ Dist::Zilla::App::Command::rjbsver - see what the mantissa for an rjbs-style ver
 
 =head1 VERSION
 
-version 0.093580
+version 0.100310
 
 =head1 AUTHOR
 
@@ -35,7 +35,7 @@ version 0.093580
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2010 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
