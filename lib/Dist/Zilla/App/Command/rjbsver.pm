@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Dist::Zilla::App::Command::rjbsver;
-our $VERSION = '0.100310';
+our $VERSION = '0.100490';
 # ABSTRACT: see what the mantissa for an rjbs-style version is today
 use Dist::Zilla::App -command;
 
@@ -27,7 +27,7 @@ Dist::Zilla::App::Command::rjbsver - see what the mantissa for an rjbs-style ver
 
 =head1 VERSION
 
-version 0.100310
+version 0.100490
 
 =head1 AUTHOR
 
