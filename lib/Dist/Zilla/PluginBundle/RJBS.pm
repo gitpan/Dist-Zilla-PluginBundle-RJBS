@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::RJBS;
-our $VERSION = '0.100490';
+our $VERSION = '0.100500';
 # ABSTRACT: BeLike::RJBS when you build your dists
 
 use Moose;
@@ -22,13 +22,6 @@ sub bundle_config {
     payload => {
       bundle => '@Classic',
       remove => [ qw(PodVersion) ],
-    },
-  });
-
-  push @plugins, Dist::Zilla::PluginBundle::Git->bundle_config({
-    name    => "$class/Git",
-    payload => {
-      tag_format => '%v',
     },
   });
 
@@ -65,6 +58,13 @@ sub bundle_config {
 
   push @plugins, @extra;
 
+  push @plugins, Dist::Zilla::PluginBundle::Git->bundle_config({
+    name    => "$class/Git",
+    payload => {
+      tag_format => '%v',
+    },
+  });
+
   return @plugins;
 }
 
@@ -81,7 +81,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.100490
+version 0.100500
 
 =head1 DESCRIPTION
 
