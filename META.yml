@@ -2,7 +2,10 @@
 abstract: 'BeLike::RJBS when you build your dists'
 author:
   - 'Ricardo Signes <rjbs@cpan.org>'
-generated_by: 'Dist::Zilla version 1.100160'
+build_requires: {}
+configure_requires:
+  ExtUtils::MakeMaker: 6.11
+generated_by: 'Dist::Zilla version 1.100650'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -19,7 +22,6 @@ requires:
   Dist::Zilla::PluginBundle::Filter: 0
   Dist::Zilla::PluginBundle::Git: 0
   Dist::Zilla::Role::PluginBundle: 0
-  ExtUtils::MakeMaker: 6.11
   Moose: 0
   Moose::Autobox: 0
   Pod::Elemental: 0.092970
@@ -28,4 +30,4 @@ requires:
   Test::More: 0
 resources:
   repository: git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git
-version: 0.100500
+version: 0.100650

@@ -2,20 +2,21 @@
    "resources" : {
       "repository" : "git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git"
    },
-   "generated_by" : "Dist::Zilla version 1.100160",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "version" : "0.100500",
+   "generated_by" : "Dist::Zilla version 1.100650",
+   "version" : "0.100650",
    "name" : "Dist-Zilla-PluginBundle-RJBS",
    "author" : [
       "Ricardo Signes <rjbs@cpan.org>"
    ],
    "license" : "perl",
+   "build_requires" : {},
    "requires" : {
-      "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
       "DateTime" : "0",
+      "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
       "Pod::Elemental" : "0.092970",
       "Dist::Zilla::Role::PluginBundle" : "0",
       "Dist::Zilla::PluginBundle::Filter" : "0",
@@ -24,7 +25,6 @@
       "Dist::Zilla::App" : "0",
       "Pod::Elemental::Transformer::List" : "0",
       "Dist::Zilla::Plugin::AutoPrereq" : "1.100130",
-      "ExtUtils::MakeMaker" : "6.11",
       "Dist::Zilla::Plugin::Repository" : "0",
       "Moose::Autobox" : "0",
       "Test::More" : "0",
@@ -32,6 +32,9 @@
       "Dist::Zilla::PluginBundle::Git" : "0",
       "Dist::Zilla::Plugin::TaskWeaver" : "0.093330"
    },
-   "abstract" : "BeLike::RJBS when you build your dists"
+   "abstract" : "BeLike::RJBS when you build your dists",
+   "configure_requires" : {
+      "ExtUtils::MakeMaker" : "6.11"
+   }
 }
 
