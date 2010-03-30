@@ -10,5 +10,4 @@ lib/Dist/Zilla/App/Command/rjbsver.pm
 lib/Dist/Zilla/PluginBundle/RJBS.pm
 lib/Pod/Weaver/PluginBundle/RJBS.pm
 t/compile.t
-t/release-pod-coverage.t
 t/release-pod-syntax.t

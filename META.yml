@@ -2,10 +2,11 @@
 abstract: 'BeLike::RJBS when you build your dists'
 author:
   - 'Ricardo Signes <rjbs@cpan.org>'
-build_requires: {}
+build_requires:
+  Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.11
-generated_by: 'Dist::Zilla version 1.100650'
+  ExtUtils::MakeMaker: 6.31
+generated_by: 'Dist::Zilla version 2.100880'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -13,7 +14,7 @@ meta-spec:
 name: Dist-Zilla-PluginBundle-RJBS
 requires:
   DateTime: 0
-  Dist::Zilla: 1.092990
+  Dist::Zilla: 2
   Dist::Zilla::App: 0
   Dist::Zilla::Plugin::AutoPrereq: 1.100130
   Dist::Zilla::Plugin::PodWeaver: 3.092971
@@ -27,7 +28,141 @@ requires:
   Pod::Elemental: 0.092970
   Pod::Elemental::Transformer::List: 0
   Pod::Weaver: 3.100310
-  Test::More: 0
 resources:
   repository: git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git
-version: 0.100650
+version: 0.100890
+x_Dist_Zilla:
+  plugins:
+    -
+      class: Dist::Zilla::Plugin::GatherDir
+      name: '@RJBS/@Classic/GatherDir'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::PruneCruft
+      name: '@RJBS/@Classic/PruneCruft'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::ManifestSkip
+      name: '@RJBS/@Classic/ManifestSkip'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::MetaYAML
+      name: '@RJBS/@Classic/MetaYAML'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::License
+      name: '@RJBS/@Classic/License'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::Readme
+      name: '@RJBS/@Classic/Readme'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::PkgVersion
+      name: '@RJBS/@Classic/PkgVersion'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::PodSyntaxTests
+      name: '@RJBS/@Classic/PodSyntaxTests'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::ExtraTests
+      name: '@RJBS/@Classic/ExtraTests'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::ExecDir
+      name: '@RJBS/@Classic/ExecDir'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::ShareDir
+      name: '@RJBS/@Classic/ShareDir'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::MakeMaker
+      name: '@RJBS/@Classic/MakeMaker'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::Manifest
+      name: '@RJBS/@Classic/Manifest'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::ConfirmRelease
+      name: '@RJBS/@Classic/ConfirmRelease'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::UploadToCPAN
+      name: '@RJBS/@Classic/UploadToCPAN'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::AutoPrereq
+      name: '@RJBS/AutoPrereq'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::AutoVersion
+      name: '@RJBS/AutoVersion'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::MetaConfig
+      name: '@RJBS/MetaConfig'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::MetaJSON
+      name: '@RJBS/MetaJSON'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::NextRelease
+      name: '@RJBS/NextRelease'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::PodWeaver
+      name: '@RJBS/PodWeaver'
+      version: 3.100710
+    -
+      class: Dist::Zilla::Plugin::Repository
+      name: '@RJBS/Repository'
+      version: 0.11
+    -
+      class: Dist::Zilla::Plugin::Git::Check
+      name: '@RJBS/@Git/Check'
+      version: 1.100760
+    -
+      class: Dist::Zilla::Plugin::Git::Commit
+      name: '@RJBS/@Git/Commit'
+      version: 1.100760
+    -
+      class: Dist::Zilla::Plugin::Git::Tag
+      name: '@RJBS/@Git/Tag'
+      version: 1.100760
+    -
+      class: Dist::Zilla::Plugin::Git::Push
+      name: '@RJBS/@Git/Push'
+      version: 1.100760
+    -
+      class: Dist::Zilla::Plugin::Prereq
+      config:
+        Dist::Zilla::Plugin::Prereq:
+          phase: runtime
+          type: requires
+      name: Prereq
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':InstallModules'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':TestFiles'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':ExecFiles'
+      version: 2.100880
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':ShareFiles'
+      version: 2.100880
+  zilla:
+    class: Dist::Zilla
+    config:
+      is_trial: 0
+    version: 2.100880

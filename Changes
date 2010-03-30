@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+0.100890  2010-03-30 18:04:42 America/New_York
+          require Dist::Zilla 2
+          remove PodCoverageTests
+          add MetaConfig
+
 0.100650  2010-03-06 14:19:04 America/New_York
           name bundle contents better (for easier log reading)
 
