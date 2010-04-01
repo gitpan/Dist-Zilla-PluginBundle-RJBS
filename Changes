@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+0.100910  2010-04-01 12:32:12 America/New_York
+          add manual_version
+          update documentation
+
 0.100890  2010-03-30 18:04:42 America/New_York
           require Dist::Zilla 2
           remove PodCoverageTests

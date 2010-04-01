@@ -36,7 +36,7 @@
    "resources" : {
       "repository" : "git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git"
    },
-   "version" : "0.100890",
+   "version" : "0.100910",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
