@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
                                            },
                        'ABSTRACT' => 'BeLike::RJBS when you build your dists',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.100910',
+                       'VERSION' => '0.100990',
                        'PREREQ_PM' => {
                                         'DateTime' => '0',
                                         'Dist::Zilla::Plugin::PodWeaver' => '3.092971',
@@ -34,11 +34,11 @@ my %WriteMakefileArgs = (
                                         'Dist::Zilla::Plugin::AutoPrereq' => '1.100130',
                                         'Dist::Zilla::Plugin::Repository' => '0',
                                         'Moose::Autobox' => '0',
-                                        'Dist::Zilla::PluginBundle::Filter' => '0',
-                                        'Dist::Zilla' => '2',
+                                        'Dist::Zilla' => '2.100922',
                                         'Pod::Weaver' => '3.100310',
                                         'Dist::Zilla::PluginBundle::Git' => '0',
                                         'Dist::Zilla::Plugin::TaskWeaver' => '0.093330',
+                                        'Dist::Zilla::PluginBundle::Basic' => '0',
                                         'Moose' => '0'
                                       },
                        'LICENSE' => 'perl'

@@ -1,7 +1,9 @@
 use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
-$Pod::Weaver::PluginBundle::RJBS::VERSION = '0.100910';
+BEGIN {
+  $Pod::Weaver::PluginBundle::RJBS::VERSION = '0.100990';
+}
 # ABSTRACT: RJBS's default Pod::Weaver config
 
 
@@ -25,7 +27,7 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 0.100910
+version 0.100990
 
 =head1 OVERVIEW
 
