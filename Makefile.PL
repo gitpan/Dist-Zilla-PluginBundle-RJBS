@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
                                            },
                        'ABSTRACT' => 'BeLike::RJBS when you build your dists',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.100990',
+                       'VERSION' => '0.101020',
                        'PREREQ_PM' => {
                                         'DateTime' => '0',
                                         'Dist::Zilla::Plugin::PodWeaver' => '3.092971',

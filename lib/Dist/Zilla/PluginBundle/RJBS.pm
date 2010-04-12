@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '0.100990';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '0.101020';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -22,10 +22,6 @@ sub bundle_config {
   my $prefix  = 'Dist::Zilla::Plugin::';
 
   my @plugins;
-
-  push @plugins, [
-    "$section->{name}/TestRelease" => "${prefix}TestRelease" => {}
-  ];
 
   push @plugins, Dist::Zilla::PluginBundle::Basic->bundle_config({
     name    => $section->{name} . '/@Basic',
@@ -92,13 +88,11 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 0.100990
+version 0.101020
 
 =head1 DESCRIPTION
 
 This is the plugin bundle that RJBS uses.  It is equivalent to:
-
-  [TestRelease]
 
   [@Basic]
 
