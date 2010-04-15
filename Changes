@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+0.101040  2010-04-14 22:49:15 America/New_York
+          use PluginBundle::Easy
+
 0.101020  2010-04-12 13:10:37 America/New_York
 
 0.100990  2010-04-09 22:45:50 America/New_York
