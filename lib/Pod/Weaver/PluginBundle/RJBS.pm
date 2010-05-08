@@ -2,18 +2,47 @@ use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
 BEGIN {
-  $Pod::Weaver::PluginBundle::RJBS::VERSION = '0.101040';
+  $Pod::Weaver::PluginBundle::RJBS::VERSION = '0.101270';
 }
 # ABSTRACT: RJBS's default Pod::Weaver config
 
 
+use Pod::Weaver::Config::Assembler;
+sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
+
 sub mvp_bundle_config {
-  return (
-    [ '@RJBS/Default', 'Pod::Weaver::PluginBundle::Default', {} ],
-    [ '@RJBS/List',    'Pod::Weaver::Plugin::Transformer',
-      { 'transformer' => 'List' }
-    ],
+  my @plugins;
+  push @plugins, (
+    [ '@RJBS/CorePrep',    _exp('@CorePrep'), {} ],
+    [ '@RJBS/Name',        _exp('Name'),      {} ],
+    [ '@RJBS/Version',     _exp('Version'),   {} ],
+
+    [ '@RJBS/Prelude',     _exp('Region'),  { region_name => 'prelude'     } ],
+    [ '@RJBS/Synopsis',    _exp('Generic'), { header      => 'SYNOPSIS'    } ],
+    [ '@RJBS/Description', _exp('Generic'), { header      => 'DESCRIPTION' } ],
+    [ '@RJBS/Overview',    _exp('Generic'), { header      => 'OVERVIEW'    } ],
+
+    [ '@RJBS/Stability',   _exp('Generic'), { header      => 'STABILITY'   } ],
   );
+
+  for my $plugin (
+    [ 'Attributes', _exp('Collect'), { command => 'attr'   } ],
+    [ 'Methods',    _exp('Collect'), { command => 'method' } ],
+    [ 'Functions',  _exp('Collect'), { command => 'func'   } ],
+  ) {
+    $plugin->[2]{header} = uc $plugin->[0];
+    push @plugins, $plugin;
+  }
+
+  push @plugins, (
+    [ '@RJBS/Leftovers', _exp('Leftovers'), {} ],
+    [ '@RJBS/postlude',  _exp('Region'),    { region_name => 'postlude' } ],
+    [ '@RJBS/Authors',   _exp('Authors'),   {} ],
+    [ '@RJBS/Legal',     _exp('Legal'),     {} ],
+    [ '@RJBS/List',      _exp('-Transformer'), { 'transformer' => 'List' } ],
+  );
+
+  return @plugins;
 }
 
 1;
@@ -27,11 +56,11 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 0.101040
+version 0.101270
 
 =head1 OVERVIEW
 
-Equivalent to:
+Roughly equivalent to:
 
 =over 4
 
