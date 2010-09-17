@@ -40,7 +40,7 @@ my %WriteMakefileArgs = (
     'Pod::Weaver' => '3.100310',
     'Pod::Weaver::Config::Assembler' => '0'
   },
-  'VERSION' => '1.000',
+  'VERSION' => '1.001',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.000';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.001';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -49,7 +49,7 @@ sub configure {
 
   $self->add_bundle('@Basic');
 
-  $self->add_plugins('AutoPrereq');
+  $self->add_plugins('AutoPrereqs');
 
 
   unless ($self->manual_version) {
@@ -106,7 +106,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.000
+version 1.001
 
 =head1 DESCRIPTION
 
@@ -114,7 +114,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
 
   [@Basic]
 
-  [AutoPrereq]
+  [AutoPrereqs]
   [BumpVersionFromGit]
   [PkgVersion]
   [MetaConfig]
