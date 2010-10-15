@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.001';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.002';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -66,7 +66,7 @@ sub configure {
       ]);
     } else {
       $self->add_plugins([
-        BumpVersionFromGit => {
+        'Git::NextVersion' => {
           version_regexp => '^([0-9]+\.[0-9]+)$',
         }
       ]);
@@ -106,7 +106,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.001
+version 1.002
 
 =head1 DESCRIPTION
 
@@ -115,7 +115,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
   [@Basic]
 
   [AutoPrereqs]
-  [BumpVersionFromGit]
+  [Git::NextVersion]
   [PkgVersion]
   [MetaConfig]
   [MetaJSON]
@@ -131,7 +131,7 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
   tag_format = %v
 
 If the C<task> argument is given to the bundle, PodWeaver is replaced with
-TaskWeaver and BumpVersionFromGit is replaced with AutoVersion.  If the
+TaskWeaver and Git::NextVersion is replaced with AutoVersion.  If the
 C<manual_version> argument is given, AutoVersion is omitted. 
 
 =head1 AUTHOR

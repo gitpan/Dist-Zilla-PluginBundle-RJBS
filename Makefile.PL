@@ -22,9 +22,7 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Dist::Zilla::PluginBundle::RJBS',
   'PREREQ_PM' => {
-    'DateTime' => '0',
     'Dist::Zilla' => '2.100922',
-    'Dist::Zilla::App' => '0',
     'Dist::Zilla::Plugin::AutoPrereq' => '1.100130',
     'Dist::Zilla::Plugin::BumpVersionFromGit' => '0',
     'Dist::Zilla::Plugin::PodWeaver' => '3.092971',
@@ -40,7 +38,7 @@ my %WriteMakefileArgs = (
     'Pod::Weaver' => '3.100310',
     'Pod::Weaver::Config::Assembler' => '0'
   },
-  'VERSION' => '1.001',
+  'VERSION' => '1.002',
   'test' => {
     'TESTS' => 't/*.t'
   }
