@@ -31,7 +31,7 @@ requires:
   Pod::Weaver::Config::Assembler: 0
 resources:
   repository: git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git
-version: 1.002
+version: 1.003
 x_Dist_Zilla:
   plugins:
     -
@@ -125,7 +125,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@RJBS/PodWeaver'
-      version: 3.101640
+      version: 3.101641
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@RJBS/@Git/Check'

@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.002';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.003';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -90,7 +90,10 @@ sub configure {
     ]);
   }
 
-  $self->add_bundle('@Git' => { tag_format => '%v' });
+  $self->add_bundle('@Git' => {
+    tag_format => '%v',
+    push_to    => [ qw(origin github) ],
+  });
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -106,7 +109,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.002
+version 1.003
 
 =head1 DESCRIPTION
 
