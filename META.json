@@ -40,18 +40,17 @@
       },
       "test" : {
          "requires" : {
-            "Test::More" : 0
+            "Test::More" : "0.96"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
       "repository" : {
-         "type" : "git",
-         "url" : "git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git"
+         "url" : "http://github.com/rjbs/dist-zilla-pluginbundle-rjbs"
       }
    },
-   "version" : "1.003",
+   "version" : "1.004",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -163,6 +162,17 @@
             "class" : "Dist::Zilla::Plugin::Repository",
             "name" : "@RJBS/Repository",
             "version" : "0.14"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "test",
+                  "type" : "requires"
+               }
+            },
+            "name" : "@RJBS/TestMoreWithSubtests",
+            "version" : "4.102342"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodWeaver",

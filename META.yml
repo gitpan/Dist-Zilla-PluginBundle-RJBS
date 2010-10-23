@@ -3,7 +3,7 @@ abstract: 'BeLike::RJBS when you build your dists'
 author:
   - 'Ricardo Signes <rjbs@cpan.org>'
 build_requires:
-  Test::More: 0
+  Test::More: 0.96
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
@@ -30,8 +30,8 @@ requires:
   Pod::Weaver: 3.100310
   Pod::Weaver::Config::Assembler: 0
 resources:
-  repository: git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git
-version: 1.003
+  repository: http://github.com/rjbs/dist-zilla-pluginbundle-rjbs
+version: 1.004
 x_Dist_Zilla:
   plugins:
     -
@@ -122,6 +122,14 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Repository
       name: '@RJBS/Repository'
       version: 0.14
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: test
+          type: requires
+      name: '@RJBS/TestMoreWithSubtests'
+      version: 4.102342
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@RJBS/PodWeaver'

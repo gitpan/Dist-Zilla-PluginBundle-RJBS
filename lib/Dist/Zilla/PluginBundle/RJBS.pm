@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.003';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.004';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -82,6 +82,14 @@ sub configure {
     Repository
   ));
 
+  $self->add_plugins(
+    [ Prereqs => 'TestMoreWithSubtests' => {
+      -phase => 'test',
+      -type  => 'requires',
+      'Test::More' => '0.96'
+    } ],
+  );
+
   if ($self->is_task) {
     $self->add_plugins('TaskWeaver');
   } else {
@@ -109,7 +117,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.003
+version 1.004
 
 =head1 DESCRIPTION
 
