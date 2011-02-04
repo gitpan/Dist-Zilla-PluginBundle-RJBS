@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.004';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.005';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -47,6 +47,7 @@ sub configure {
   $self->log_fatal("you must not specify both weaver_config and is_task")
     if $self->is_task and $self->weaver_config ne '@RJBS';
 
+  $self->add_plugins('CheckPrereqsIndexed');
   $self->add_bundle('@Basic');
 
   $self->add_plugins('AutoPrereqs');
@@ -117,7 +118,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.004
+version 1.005
 
 =head1 DESCRIPTION
 
@@ -151,7 +152,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
