@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.005';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.006';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -118,7 +118,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.005
+version 1.006
 
 =head1 DESCRIPTION
 

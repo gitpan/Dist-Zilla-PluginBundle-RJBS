@@ -23,7 +23,6 @@
          "requires" : {
             "Dist::Zilla" : "2.100922",
             "Dist::Zilla::Plugin::AutoPrereq" : "1.100130",
-            "Dist::Zilla::Plugin::BumpVersionFromGit" : 0,
             "Dist::Zilla::Plugin::CheckPrereqsIndexed" : 0,
             "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
             "Dist::Zilla::Plugin::Repository" : 0,
@@ -52,13 +51,13 @@
          "url" : "git://git.codesimply.com/Dist-Zilla-PluginBundle-RJBS.git"
       }
    },
-   "version" : "1.005",
+   "version" : "1.006",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
             "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
             "name" : "@RJBS/CheckPrereqsIndexed",
-            "version" : "0.001"
+            "version" : "0.002"
          },
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
