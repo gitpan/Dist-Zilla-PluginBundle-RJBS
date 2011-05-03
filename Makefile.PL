@@ -4,7 +4,7 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -15,7 +15,7 @@ my %WriteMakefileArgs = (
     'Test::More' => '0.96'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'Dist-Zilla-PluginBundle-RJBS',
   'EXE_FILES' => [],
@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla' => '2.100922',
     'Dist::Zilla::Plugin::AutoPrereq' => '1.100130',
     'Dist::Zilla::Plugin::CheckPrereqsIndexed' => '0',
+    'Dist::Zilla::Plugin::GithubMeta' => '0.12',
     'Dist::Zilla::Plugin::PodWeaver' => '3.092971',
     'Dist::Zilla::Plugin::Repository' => '0',
     'Dist::Zilla::Plugin::TaskWeaver' => '0.093330',
@@ -38,7 +39,7 @@ my %WriteMakefileArgs = (
     'Pod::Weaver' => '3.100310',
     'Pod::Weaver::Config::Assembler' => '0'
   },
-  'VERSION' => '1.006',
+  'VERSION' => '1.007',
   'test' => {
     'TESTS' => 't/*.t'
   }

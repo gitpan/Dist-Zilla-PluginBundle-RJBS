@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.006';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.007';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -34,6 +34,13 @@ has is_task => (
   default => sub { $_[0]->payload->{task} },
 );
 
+has github_issues => (
+  is      => 'ro',
+  isa     => 'Bool',
+  lazy    => 1,
+  default => sub { $_[0]->payload->{github_issues} },
+);
+
 has weaver_config => (
   is      => 'ro',
   isa     => 'Str',
@@ -51,7 +58,6 @@ sub configure {
   $self->add_bundle('@Basic');
 
   $self->add_plugins('AutoPrereqs');
-
 
   unless ($self->manual_version) {
     if ($self->is_task) {
@@ -99,6 +105,14 @@ sub configure {
     ]);
   }
 
+  $self->add_plugins(
+    [ GithubMeta => {
+      user   => 'rjbs',
+      remote => [ qw(github origin) ],
+      issues => $self->github_issues,
+    } ],
+  );
+
   $self->add_bundle('@Git' => {
     tag_format => '%v',
     push_to    => [ qw(origin github) ],
@@ -118,7 +132,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.006
+version 1.007
 
 =head1 DESCRIPTION
 
@@ -137,14 +151,20 @@ This is the plugin bundle that RJBS uses.  It is equivalent to:
   [PodWeaver]
   config_plugin = @RJBS
 
-  [Repository]
+  [GithubMeta]
+  user = rjbs
+  remote = github
+  remote = origin
 
   [@Git]
   tag_format = %v
 
 If the C<task> argument is given to the bundle, PodWeaver is replaced with
 TaskWeaver and Git::NextVersion is replaced with AutoVersion.  If the
-C<manual_version> argument is given, AutoVersion is omitted. 
+C<manual_version> argument is given, AutoVersion is omitted.
+
+If the C<github_issues> argument is given, and true, the F<META.*> files will
+point to GitHub issues for the dist's bugtracker.
 
 =head1 AUTHOR
 
