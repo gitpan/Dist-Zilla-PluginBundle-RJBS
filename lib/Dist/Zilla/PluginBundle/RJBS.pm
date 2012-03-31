@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
-BEGIN {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.007';
+{
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.008';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -86,7 +86,6 @@ sub configure {
     MetaJSON
     NextRelease
     PodSyntaxTests
-    Repository
   ));
 
   $self->add_plugins(
@@ -132,11 +131,11 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.007
+version 1.008
 
 =head1 DESCRIPTION
 
-This is the plugin bundle that RJBS uses.  It is equivalent to:
+This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
 
   [@Basic]
 
@@ -172,7 +171,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo Signes.
+This software is copyright (c) 2012 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
