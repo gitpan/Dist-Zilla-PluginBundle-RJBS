@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.008';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.009';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -11,6 +11,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 
 use Dist::Zilla::PluginBundle::Basic;
+use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git;
 
 has manual_version => (
@@ -54,8 +55,12 @@ sub configure {
   $self->log_fatal("you must not specify both weaver_config and is_task")
     if $self->is_task and $self->weaver_config ne '@RJBS';
 
+  $self->add_plugins('Git::GatherDir');
   $self->add_plugins('CheckPrereqsIndexed');
-  $self->add_bundle('@Basic');
+  $self->add_bundle('@Filter', {
+    '-bundle' => '@Basic',
+    '-remove' => [ 'GatherDir' ],
+  });
 
   $self->add_plugins('AutoPrereqs');
 
@@ -131,13 +136,15 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.008
+version 1.009
 
 =head1 DESCRIPTION
 
 This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
 
+  [Git::GatherDir]
   [@Basic]
+  ; ...but without GatherDir
 
   [AutoPrereqs]
   [Git::NextVersion]

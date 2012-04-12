@@ -29,6 +29,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::PodWeaver" => "3.092971",
     "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
     "Dist::Zilla::PluginBundle::Basic" => 0,
+    "Dist::Zilla::PluginBundle::Filter" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Moose" => 0,
@@ -40,7 +41,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.008",
+  "VERSION" => "1.009",
   "test" => {
     "TESTS" => "t/*.t"
   }
