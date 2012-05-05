@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.009';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.010';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -57,9 +57,10 @@ sub configure {
 
   $self->add_plugins('Git::GatherDir');
   $self->add_plugins('CheckPrereqsIndexed');
+  $self->add_plugins('CheckExtraTests');
   $self->add_bundle('@Filter', {
     '-bundle' => '@Basic',
-    '-remove' => [ 'GatherDir' ],
+    '-remove' => [ 'GatherDir', 'ExtraTests' ],
   });
 
   $self->add_plugins('AutoPrereqs');
@@ -136,7 +137,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.009
+version 1.010
 
 =head1 DESCRIPTION
 

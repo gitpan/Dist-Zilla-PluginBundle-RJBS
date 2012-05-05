@@ -9,4 +9,4 @@ dist.ini
 lib/Dist/Zilla/PluginBundle/RJBS.pm
 lib/Pod/Weaver/PluginBundle/RJBS.pm
 t/compile.t
-t/release-pod-syntax.t
+xt/release/pod-syntax.t
