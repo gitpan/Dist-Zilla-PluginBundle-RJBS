@@ -12,6 +12,8 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "BeLike::RJBS when you build your dists",
   "AUTHOR" => "Ricardo Signes <rjbs\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
     "Test::More" => "0.96"
   },
   "CONFIGURE_REQUIRES" => {
@@ -28,7 +30,10 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
     "Dist::Zilla::Plugin::GithubMeta" => "0.12",
     "Dist::Zilla::Plugin::PodWeaver" => "3.092971",
+    "Dist::Zilla::Plugin::ReportVersions::Tiny" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
+    "Dist::Zilla::Plugin::Test::ChangesHasContent" => 0,
+    "Dist::Zilla::Plugin::Test::Compile" => 0,
     "Dist::Zilla::PluginBundle::Basic" => 0,
     "Dist::Zilla::PluginBundle::Filter" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
@@ -42,7 +47,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.011",
+  "VERSION" => "1.012",
   "test" => {
     "TESTS" => "t/*.t"
   }

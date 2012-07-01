@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.011';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.012';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -91,7 +91,10 @@ sub configure {
     MetaConfig
     MetaJSON
     NextRelease
+    Test::ChangesHasContent
     PodSyntaxTests
+    Test::Compile
+    ReportVersions::Tiny
   ));
 
   $self->add_plugins(
@@ -137,7 +140,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.011
+version 1.012
 
 =head1 DESCRIPTION
 
@@ -145,7 +148,7 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
 
   [Git::GatherDir]
   [@Basic]
-  ; ...but without GatherDir
+  ; ...but without GatherDir and ExtraTests
 
   [AutoPrereqs]
   [Git::NextVersion]
@@ -153,7 +156,11 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
   [MetaConfig]
   [MetaJSON]
   [NextRelease]
+
+  [Test::ChangesHasContent]
   [PodSyntaxTests]
+  [Test::Compile]
+  [ReportVersions::Tiny]
 
   [PodWeaver]
   config_plugin = @RJBS

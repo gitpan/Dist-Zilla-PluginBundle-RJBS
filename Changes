@@ -1,5 +1,12 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+1.012     2012-07-01 18:10:21 America/New_York
+          add Test::ChangesHasContent
+          add CheckExtraTests
+          add CheckPrereqsIndexed
+          add ReportVersions::Tiny
+          add Test::Compile
+
 1.011     2012-05-11 10:35:26 America/New_York
           add CheckExtraTests to prereqs
 
