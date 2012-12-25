@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.012';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.013';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -123,7 +123,10 @@ sub configure {
 
   $self->add_bundle('@Git' => {
     tag_format => '%v',
-    push_to    => [ qw(origin github) ],
+    push_to    => [
+      'origin :',
+      'github :',
+    ],
   });
 }
 
@@ -132,6 +135,7 @@ no Moose;
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -140,7 +144,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.012
+version 1.013
 
 =head1 DESCRIPTION
 
@@ -192,4 +196,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

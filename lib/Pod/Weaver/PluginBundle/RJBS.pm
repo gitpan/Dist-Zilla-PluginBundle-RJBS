@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
 {
-  $Pod::Weaver::PluginBundle::RJBS::VERSION = '1.012';
+  $Pod::Weaver::PluginBundle::RJBS::VERSION = '1.013';
 }
 # ABSTRACT: RJBS's default Pod::Weaver config
 
@@ -48,6 +48,7 @@ sub mvp_bundle_config {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -56,7 +57,7 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 1.012
+version 1.013
 
 =head1 OVERVIEW
 
@@ -86,4 +87,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
