@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.014';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.015';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -39,7 +39,7 @@ has github_issues => (
   is      => 'ro',
   isa     => 'Bool',
   lazy    => 1,
-  default => sub { $_[0]->payload->{github_issues} },
+  default => sub { $_[0]->payload->{github_issues} // 1 },
 );
 
 has weaver_config => (
@@ -145,7 +145,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.014
+version 1.015
 
 =head1 DESCRIPTION
 

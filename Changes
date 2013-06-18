@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+1.015     2013-06-18 13:27:39 America/New_York
+          default to github issues
+
 1.014     2013-01-30 21:52:52 America/New_York
           set remotes_must_exist=0 for @Git, to work around a bug that
           breaks pushing to named branches
