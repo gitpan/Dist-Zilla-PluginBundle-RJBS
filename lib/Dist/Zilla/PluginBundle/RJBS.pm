@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.015';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.016';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -49,6 +49,15 @@ has weaver_config => (
   default => sub { $_[0]->payload->{weaver_config} || '@RJBS' },
 );
 
+sub mvp_multivalue_args { qw(dont_compile) }
+
+has dont_compile => (
+  is      => 'ro',
+  isa     => 'ArrayRef[Str]',
+  lazy    => 1,
+  default => sub { $_[0]->payload->{dont_compile} || [] },
+);
+
 sub configure {
   my ($self) = @_;
 
@@ -86,16 +95,23 @@ sub configure {
     }
   }
 
-  $self->add_plugins(qw(
-    PkgVersion
-    MetaConfig
-    MetaJSON
-    NextRelease
-    Test::ChangesHasContent
-    PodSyntaxTests
-    Test::Compile
-    ReportVersions::Tiny
-  ));
+  $self->add_plugins(
+    [ PkgVersion => { die_on_existing_version => 1 } ],
+    qw(
+      MetaConfig
+      MetaJSON
+      NextRelease
+      Test::ChangesHasContent
+      PodSyntaxTests
+      ReportVersions::Tiny
+    ),
+  );
+
+  $self->add_plugins(
+    [ 'Test::Compile' => {
+      skip => $self->dont_compile,
+    } ],
+  );
 
   $self->add_plugins(
     [ Prereqs => 'TestMoreWithSubtests' => {
@@ -145,7 +161,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.015
+version 1.016
 
 =head1 DESCRIPTION
 
@@ -158,6 +174,7 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
   [AutoPrereqs]
   [Git::NextVersion]
   [PkgVersion]
+  die_on_existing_version = 1
   [MetaConfig]
   [MetaJSON]
   [NextRelease]
