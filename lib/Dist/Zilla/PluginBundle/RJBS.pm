@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.016';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.017';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -67,6 +67,17 @@ sub configure {
   $self->add_plugins('Git::GatherDir');
   $self->add_plugins('CheckPrereqsIndexed');
   $self->add_plugins('CheckExtraTests');
+  $self->add_plugins(
+    [ PromptIfStale => 'RJBS-Outdated' => {
+      phase  => 'build',
+      module => 'Dist::Zilla::PluginBundle::RJBS',
+    } ],
+    [ PromptIfStale => 'CPAN-Outdated' => {
+      phase => 'release',
+      check_all_plugins => 1,
+      # check_all_prereqs => 1, # <-- not sure yet -- rjbs, 2013-09-23
+    } ],
+  );
   $self->add_bundle('@Filter', {
     '-bundle' => '@Basic',
     '-remove' => [ 'GatherDir', 'ExtraTests' ],
@@ -110,6 +121,7 @@ sub configure {
   $self->add_plugins(
     [ 'Test::Compile' => {
       skip => $self->dont_compile,
+      bail_out_on_fail => 1,
     } ],
   );
 
@@ -161,7 +173,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.016
+version 1.017
 
 =head1 DESCRIPTION
 
