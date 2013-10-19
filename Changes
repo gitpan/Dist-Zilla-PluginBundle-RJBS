@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-RJBS
 
+1.018     2013-10-19 09:46:28 America/New_York
+        - add PromptIfStale to prereqs
+        - remove Test::Compile
+
 1.017     2013-09-23 10:36:29 America/New_York
         - turn on PromptIfStale
         - BAIL_OUT on compilation failures

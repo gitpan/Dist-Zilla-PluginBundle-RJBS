@@ -4,7 +4,7 @@
       "Ricardo Signes <rjbs@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620",
+   "generated_by" : "Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830",
    "license" : [
       "perl_5"
    ],
@@ -33,10 +33,10 @@
             "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0",
             "Dist::Zilla::Plugin::GithubMeta" : "0.12",
             "Dist::Zilla::Plugin::PodWeaver" : "3.092971",
+            "Dist::Zilla::Plugin::PromptIfStale" : "0",
             "Dist::Zilla::Plugin::ReportVersions::Tiny" : "0",
             "Dist::Zilla::Plugin::TaskWeaver" : "0.093330",
             "Dist::Zilla::Plugin::Test::ChangesHasContent" : "0",
-            "Dist::Zilla::Plugin::Test::Compile" : "0",
             "Dist::Zilla::PluginBundle::Basic" : "0",
             "Dist::Zilla::PluginBundle::Filter" : "0",
             "Dist::Zilla::PluginBundle::Git" : "0",
@@ -72,10 +72,10 @@
          "web" : "https://github.com/rjbs/dist-zilla-pluginbundle-rjbs"
       }
    },
-   "version" : "1.017",
+   "version" : "1.018",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.019003"
+         "version" : "5.019004"
       },
       "plugins" : [
          {
@@ -91,17 +91,17 @@
          {
             "class" : "Dist::Zilla::Plugin::CheckExtraTests",
             "name" : "@RJBS/CheckExtraTests",
-            "version" : "0.011"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::PromptIfStale",
             "name" : "@RJBS/RJBS-Outdated",
-            "version" : "0.005"
+            "version" : "0.008"
          },
          {
             "class" : "Dist::Zilla::Plugin::PromptIfStale",
             "name" : "@RJBS/CPAN-Outdated",
-            "version" : "0.005"
+            "version" : "0.008"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
@@ -206,12 +206,13 @@
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
             "name" : "@RJBS/ReportVersions::Tiny",
-            "version" : "1.09"
+            "version" : "1.10"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Compile",
             "config" : {
                "Dist::Zilla::Plugin::Test::Compile" : {
+                  "filename" : "xt/00-compile.t",
                   "module_finder" : [
                      ":InstallModules"
                   ],
@@ -221,7 +222,7 @@
                }
             },
             "name" : "@RJBS/Test::Compile",
-            "version" : "2.033"
+            "version" : "2.037"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -236,13 +237,22 @@
          },
          {
             "class" : "Dist::Zilla::Plugin::PodWeaver",
+            "config" : {
+               "Dist::Zilla::Plugin::PodWeaver" : {
+                  "config_plugin" : "@RJBS",
+                  "finder" : [
+                     ":InstallModules",
+                     ":ExecFiles"
+                  ]
+               }
+            },
             "name" : "@RJBS/PodWeaver",
-            "version" : "3.101642"
+            "version" : "3.102000"
          },
          {
             "class" : "Dist::Zilla::Plugin::GithubMeta",
             "name" : "@RJBS/GithubMeta",
-            "version" : "0.38"
+            "version" : "0.42"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",

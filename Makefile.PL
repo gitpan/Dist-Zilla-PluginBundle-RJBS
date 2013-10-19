@@ -26,10 +26,10 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
     "Dist::Zilla::Plugin::GithubMeta" => "0.12",
     "Dist::Zilla::Plugin::PodWeaver" => "3.092971",
+    "Dist::Zilla::Plugin::PromptIfStale" => 0,
     "Dist::Zilla::Plugin::ReportVersions::Tiny" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
     "Dist::Zilla::Plugin::Test::ChangesHasContent" => 0,
-    "Dist::Zilla::Plugin::Test::Compile" => 0,
     "Dist::Zilla::PluginBundle::Basic" => 0,
     "Dist::Zilla::PluginBundle::Filter" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
@@ -49,7 +49,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "1.017",
+  "VERSION" => "1.018",
   "test" => {
     "TESTS" => "t/*.t"
   }

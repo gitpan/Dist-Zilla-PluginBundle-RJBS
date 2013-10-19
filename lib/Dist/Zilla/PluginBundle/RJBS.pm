@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.017';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '1.018';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -119,13 +119,6 @@ sub configure {
   );
 
   $self->add_plugins(
-    [ 'Test::Compile' => {
-      skip => $self->dont_compile,
-      bail_out_on_fail => 1,
-    } ],
-  );
-
-  $self->add_plugins(
     [ Prereqs => 'TestMoreWithSubtests' => {
       -phase => 'test',
       -type  => 'requires',
@@ -173,7 +166,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 1.017
+version 1.018
 
 =head1 DESCRIPTION
 
@@ -193,7 +186,6 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
 
   [Test::ChangesHasContent]
   [PodSyntaxTests]
-  [Test::Compile]
   [ReportVersions::Tiny]
 
   [PodWeaver]
