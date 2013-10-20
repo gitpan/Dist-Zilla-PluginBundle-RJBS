@@ -48,12 +48,12 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('Dist::Zilla','4.300036') };
+eval { $v .= pmver('Dist::Zilla','5') };
 eval { $v .= pmver('Dist::Zilla::Plugin::AutoPrereq','1.100130') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckExtraTests','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckPrereqsIndexed','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::GithubMeta','0.12') };
-eval { $v .= pmver('Dist::Zilla::Plugin::PodWeaver','3.092971') };
+eval { $v .= pmver('Dist::Zilla::Plugin::PodWeaver','4') };
 eval { $v .= pmver('Dist::Zilla::Plugin::PromptIfStale','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::ReportVersions::Tiny','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::TaskWeaver','0.093330') };
@@ -63,14 +63,11 @@ eval { $v .= pmver('Dist::Zilla::PluginBundle::Filter','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PluginBundle::Easy','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
-eval { $v .= pmver('File::Spec','any version') };
-eval { $v .= pmver('IO::Handle','any version') };
-eval { $v .= pmver('IPC::Open3','any version') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Autobox','any version') };
 eval { $v .= pmver('Pod::Elemental','0.092970') };
 eval { $v .= pmver('Pod::Elemental::Transformer::List','any version') };
-eval { $v .= pmver('Pod::Weaver','3.100310') };
+eval { $v .= pmver('Pod::Weaver','4') };
 eval { $v .= pmver('Pod::Weaver::Config::Assembler','any version') };
 eval { $v .= pmver('Test::More','0.96') };
 eval { $v .= pmver('strict','any version') };

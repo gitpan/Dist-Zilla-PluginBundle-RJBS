@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
 {
-  $Pod::Weaver::PluginBundle::RJBS::VERSION = '1.018';
+  $Pod::Weaver::PluginBundle::RJBS::VERSION = '5.000'; # TRIAL
 }
 # ABSTRACT: RJBS's default Pod::Weaver config
 
@@ -13,9 +13,10 @@ sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub mvp_bundle_config {
   my @plugins;
   push @plugins, (
-    [ '@RJBS/CorePrep',    _exp('@CorePrep'), {} ],
-    [ '@RJBS/Name',        _exp('Name'),      {} ],
-    [ '@RJBS/Version',     _exp('Version'),   {} ],
+    [ '@RJBS/CorePrep',       _exp('@CorePrep'),        {} ],
+    [ '@RJBS/SingleEncoding', _exp('-SingleEncoding'),  {} ],
+    [ '@RJBS/Name',           _exp('Name'),             {} ],
+    [ '@RJBS/Version',        _exp('Version'),          {} ],
 
     [ '@RJBS/Prelude',     _exp('Region'),  { region_name => 'prelude'     } ],
     [ '@RJBS/Synopsis',    _exp('Generic'), { header      => 'SYNOPSIS'    } ],
@@ -51,17 +52,19 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 1.018
+version 5.000
 
 =head1 OVERVIEW
 
-Roughly equivalent to:
+I<Roughly> equivalent to:
 
 =over 4
 

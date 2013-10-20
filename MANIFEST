@@ -9,6 +9,5 @@ dist.ini
 lib/Dist/Zilla/PluginBundle/RJBS.pm
 lib/Pod/Weaver/PluginBundle/RJBS.pm
 t/000-report-versions-tiny.t
-xt/00-compile.t
 xt/release/changes_has_content.t
 xt/release/pod-syntax.t

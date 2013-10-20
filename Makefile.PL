@@ -20,12 +20,12 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::PluginBundle::RJBS",
   "PREREQ_PM" => {
-    "Dist::Zilla" => "4.300036",
+    "Dist::Zilla" => 5,
     "Dist::Zilla::Plugin::AutoPrereq" => "1.100130",
     "Dist::Zilla::Plugin::CheckExtraTests" => 0,
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
     "Dist::Zilla::Plugin::GithubMeta" => "0.12",
-    "Dist::Zilla::Plugin::PodWeaver" => "3.092971",
+    "Dist::Zilla::Plugin::PodWeaver" => 4,
     "Dist::Zilla::Plugin::PromptIfStale" => 0,
     "Dist::Zilla::Plugin::ReportVersions::Tiny" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
@@ -38,18 +38,15 @@ my %WriteMakefileArgs = (
     "Moose::Autobox" => 0,
     "Pod::Elemental" => "0.092970",
     "Pod::Elemental::Transformer::List" => 0,
-    "Pod::Weaver" => "3.100310",
+    "Pod::Weaver" => 4,
     "Pod::Weaver::Config::Assembler" => 0,
     "strict" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "File::Spec" => 0,
-    "IO::Handle" => 0,
-    "IPC::Open3" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "1.018",
+  "VERSION" => "5.000",
   "test" => {
     "TESTS" => "t/*.t"
   }
