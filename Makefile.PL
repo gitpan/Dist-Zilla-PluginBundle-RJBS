@@ -46,37 +46,44 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => "0.96"
   },
-  "VERSION" => "5.000",
+  "VERSION" => "5.001",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
-  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
-  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
-  for my $mod ( keys %$tr ) {
-    if ( exists $br->{$mod} ) {
-      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
-    }
-    else {
-      $br->{$mod} = $tr->{$mod};
-    }
-  }
-}
+my %FallbackPrereqs = (
+  "Dist::Zilla" => 5,
+  "Dist::Zilla::Plugin::AutoPrereq" => "1.100130",
+  "Dist::Zilla::Plugin::CheckExtraTests" => 0,
+  "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
+  "Dist::Zilla::Plugin::GithubMeta" => "0.12",
+  "Dist::Zilla::Plugin::PodWeaver" => 4,
+  "Dist::Zilla::Plugin::PromptIfStale" => 0,
+  "Dist::Zilla::Plugin::ReportVersions::Tiny" => 0,
+  "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
+  "Dist::Zilla::Plugin::Test::ChangesHasContent" => 0,
+  "Dist::Zilla::PluginBundle::Basic" => 0,
+  "Dist::Zilla::PluginBundle::Filter" => 0,
+  "Dist::Zilla::PluginBundle::Git" => 0,
+  "Dist::Zilla::Role::PluginBundle::Easy" => 0,
+  "Moose" => 0,
+  "Moose::Autobox" => 0,
+  "Pod::Elemental" => "0.092970",
+  "Pod::Elemental::Transformer::List" => 0,
+  "Pod::Weaver" => 4,
+  "Pod::Weaver::Config::Assembler" => 0,
+  "Test::More" => "0.96",
+  "strict" => 0,
+  "warnings" => 0
+);
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  delete $WriteMakefileArgs{TEST_REQUIRES};
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+  $WriteMakefileArgs{PREREQ_PM} = \%FallbackPrereqs;
 }
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
