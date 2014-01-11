@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::RJBS;
 {
-  $Dist::Zilla::PluginBundle::RJBS::VERSION = '5.001';
+  $Dist::Zilla::PluginBundle::RJBS::VERSION = '5.002';
 }
 # ABSTRACT: BeLike::RJBS when you build your dists
 
@@ -9,6 +9,45 @@ use Moose::Autobox;
 use Dist::Zilla 2.100922; # TestRelease
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+# =head1 DESCRIPTION
+# 
+# This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
+# 
+#   [Git::GatherDir]
+#   [@Basic]
+#   ; ...but without GatherDir and ExtraTests
+# 
+#   [AutoPrereqs]
+#   [Git::NextVersion]
+#   [PkgVersion]
+#   die_on_existing_version = 1
+#   [MetaConfig]
+#   [MetaJSON]
+#   [NextRelease]
+# 
+#   [Test::ChangesHasContent]
+#   [PodSyntaxTests]
+#   [ReportVersions::Tiny]
+# 
+#   [PodWeaver]
+#   config_plugin = @RJBS
+# 
+#   [GithubMeta]
+#   user = rjbs
+#   remote = github
+#   remote = origin
+# 
+#   [@Git]
+#   tag_format = %v
+# 
+# If the C<task> argument is given to the bundle, PodWeaver is replaced with
+# TaskWeaver and Git::NextVersion is replaced with AutoVersion.  If the
+# C<manual_version> argument is given, AutoVersion is omitted.
+# 
+# If the C<github_issues> argument is given, and true, the F<META.*> files will
+# point to GitHub issues for the dist's bugtracker.
+# 
+# =cut
 
 use Dist::Zilla::PluginBundle::Basic;
 use Dist::Zilla::PluginBundle::Filter;
@@ -130,7 +169,10 @@ sub configure {
     $self->add_plugins('TaskWeaver');
   } else {
     $self->add_plugins([
-      PodWeaver => { config_plugin => $self->weaver_config }
+      PodWeaver => {
+        config_plugin => $self->weaver_config,
+        replacer      => 'replace_with_comment',
+      }
     ]);
   }
 
@@ -160,13 +202,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 5.001
+version 5.002
 
 =head1 DESCRIPTION
 
@@ -212,7 +256,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo Signes.
+This software is copyright (c) 2014 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

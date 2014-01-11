@@ -2,10 +2,19 @@ use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
 {
-  $Pod::Weaver::PluginBundle::RJBS::VERSION = '5.001';
+  $Pod::Weaver::PluginBundle::RJBS::VERSION = '5.002';
 }
 # ABSTRACT: RJBS's default Pod::Weaver config
 
+# =head1 OVERVIEW
+# 
+# I<Roughly> equivalent to:
+# 
+# =for :list
+# * C<@Default>
+# * C<-Transformer> with L<Pod::Elemental::Transformer::List>
+# 
+# =cut
 
 use Pod::Weaver::Config::Assembler;
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
@@ -52,13 +61,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 5.001
+version 5.002
 
 =head1 OVERVIEW
 
@@ -82,7 +93,7 @@ Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo Signes.
+This software is copyright (c) 2014 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
