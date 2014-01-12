@@ -27,7 +27,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Dist::Zilla" : "5",
+            "Dist::Zilla" : "5.010",
             "Dist::Zilla::Plugin::AutoPrereq" : "1.100130",
             "Dist::Zilla::Plugin::CheckExtraTests" : "0",
             "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0",
@@ -44,6 +44,7 @@
             "Moose" : "0",
             "Moose::Autobox" : "0",
             "Pod::Elemental" : "0.092970",
+            "Pod::Elemental::PerlMunger" : "0.200000",
             "Pod::Elemental::Transformer::List" : "0",
             "Pod::Weaver" : "4",
             "Pod::Weaver::Config::Assembler" : "0",
@@ -69,7 +70,7 @@
          "web" : "https://github.com/rjbs/Dist-Zilla-PluginBundle-RJBS"
       }
    },
-   "version" : "5.002",
+   "version" : "5.003",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"

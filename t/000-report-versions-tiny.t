@@ -48,7 +48,7 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('Dist::Zilla','5') };
+eval { $v .= pmver('Dist::Zilla','5.010') };
 eval { $v .= pmver('Dist::Zilla::Plugin::AutoPrereq','1.100130') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckExtraTests','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckPrereqsIndexed','any version') };
@@ -66,6 +66,7 @@ eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Autobox','any version') };
 eval { $v .= pmver('Pod::Elemental','0.092970') };
+eval { $v .= pmver('Pod::Elemental::PerlMunger','0.200000') };
 eval { $v .= pmver('Pod::Elemental::Transformer::List','any version') };
 eval { $v .= pmver('Pod::Weaver','4') };
 eval { $v .= pmver('Pod::Weaver::Config::Assembler','any version') };

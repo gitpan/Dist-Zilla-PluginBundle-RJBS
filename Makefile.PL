@@ -21,7 +21,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::PluginBundle::RJBS",
   "PREREQ_PM" => {
-    "Dist::Zilla" => 5,
+    "Dist::Zilla" => "5.010",
     "Dist::Zilla::Plugin::AutoPrereq" => "1.100130",
     "Dist::Zilla::Plugin::CheckExtraTests" => 0,
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
@@ -38,6 +38,7 @@ my %WriteMakefileArgs = (
     "Moose" => 0,
     "Moose::Autobox" => 0,
     "Pod::Elemental" => "0.092970",
+    "Pod::Elemental::PerlMunger" => "0.200000",
     "Pod::Elemental::Transformer::List" => 0,
     "Pod::Weaver" => 4,
     "Pod::Weaver::Config::Assembler" => 0,
@@ -47,7 +48,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => "0.96"
   },
-  "VERSION" => "5.002",
+  "VERSION" => "5.003",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -55,7 +56,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Dist::Zilla" => 5,
+  "Dist::Zilla" => "5.010",
   "Dist::Zilla::Plugin::AutoPrereq" => "1.100130",
   "Dist::Zilla::Plugin::CheckExtraTests" => 0,
   "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
@@ -72,6 +73,7 @@ my %FallbackPrereqs = (
   "Moose" => 0,
   "Moose::Autobox" => 0,
   "Pod::Elemental" => "0.092970",
+  "Pod::Elemental::PerlMunger" => "0.200000",
   "Pod::Elemental::Transformer::List" => 0,
   "Pod::Weaver" => 4,
   "Pod::Weaver::Config::Assembler" => 0,
