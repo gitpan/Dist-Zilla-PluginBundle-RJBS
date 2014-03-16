@@ -1,19 +1,22 @@
 package Dist::Zilla::PluginBundle::RJBS;
 # ABSTRACT: BeLike::RJBS when you build your dists
-$Dist::Zilla::PluginBundle::RJBS::VERSION = '5.003';
+$Dist::Zilla::PluginBundle::RJBS::VERSION = '5.004';
 use Moose;
 use Moose::Autobox;
 use Dist::Zilla 2.100922; # TestRelease
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 # =head1 DESCRIPTION
-# 
+#
 # This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
-# 
+#
 #   [Git::GatherDir]
 #   [@Basic]
-#   ; ...but without GatherDir and ExtraTests
-# 
+#   ; ...but without GatherDir and ExtraTests and MakeMaker
+#
+#   [MakeMaker]
+#   default_jobs = 9
+#
 #   [AutoPrereqs]
 #   [Git::NextVersion]
 #   [PkgVersion]
@@ -22,29 +25,28 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 #   [MetaConfig]
 #   [MetaJSON]
 #   [NextRelease]
-# 
+#
 #   [Test::ChangesHasContent]
 #   [PodSyntaxTests]
 #   [ReportVersions::Tiny]
-# 
+#
 #   [PodWeaver]
 #   config_plugin = @RJBS
-# 
+#
 #   [GithubMeta]
-#   user = rjbs
 #   remote = github
 #   remote = origin
-# 
+#
 #   [@Git]
 #   tag_format = %v
-# 
+#
 # If the C<task> argument is given to the bundle, PodWeaver is replaced with
 # TaskWeaver and Git::NextVersion is replaced with AutoVersion.  If the
 # C<manual_version> argument is given, AutoVersion is omitted.
-# 
+#
 # If the C<github_issues> argument is given, and true, the F<META.*> files will
 # point to GitHub issues for the dist's bugtracker.
-# 
+#
 # =cut
 
 use Dist::Zilla::PluginBundle::Basic;
@@ -117,8 +119,10 @@ sub configure {
   );
   $self->add_bundle('@Filter', {
     '-bundle' => '@Basic',
-    '-remove' => [ 'GatherDir', 'ExtraTests' ],
+    '-remove' => [ 'GatherDir', 'ExtraTests', 'MakeMaker' ],
   });
+
+  $self->add_plugins([ MakeMaker => { default_jobs => 9 } ]);
 
   $self->add_plugins('AutoPrereqs');
 
@@ -181,7 +185,6 @@ sub configure {
 
   $self->add_plugins(
     [ GithubMeta => {
-      user   => 'rjbs',
       remote => [ qw(github origin) ],
       issues => $self->github_issues,
     } ],
@@ -213,7 +216,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 5.003
+version 5.004
 
 =head1 DESCRIPTION
 
@@ -221,7 +224,10 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
 
   [Git::GatherDir]
   [@Basic]
-  ; ...but without GatherDir and ExtraTests
+  ; ...but without GatherDir and ExtraTests and MakeMaker
+
+  [MakeMaker]
+  default_jobs = 9
 
   [AutoPrereqs]
   [Git::NextVersion]
@@ -240,7 +246,6 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
   config_plugin = @RJBS
 
   [GithubMeta]
-  user = rjbs
   remote = github
   remote = origin
 

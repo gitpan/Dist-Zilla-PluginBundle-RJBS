@@ -48,7 +48,7 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('Dist::Zilla','5.010') };
+eval { $v .= pmver('Dist::Zilla','5.014') };
 eval { $v .= pmver('Dist::Zilla::Plugin::AutoPrereq','1.100130') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckExtraTests','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckPrereqsIndexed','any version') };

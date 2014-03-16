@@ -2,15 +2,15 @@ use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::RJBS;
 # ABSTRACT: RJBS's default Pod::Weaver config
-$Pod::Weaver::PluginBundle::RJBS::VERSION = '5.003';
+$Pod::Weaver::PluginBundle::RJBS::VERSION = '5.004';
 # =head1 OVERVIEW
-# 
+#
 # I<Roughly> equivalent to:
-# 
+#
 # =for :list
 # * C<@Default>
 # * C<-Transformer> with L<Pod::Elemental::Transformer::List>
-# 
+#
 # =cut
 
 use Pod::Weaver::Config::Assembler;
@@ -66,7 +66,7 @@ Pod::Weaver::PluginBundle::RJBS - RJBS's default Pod::Weaver config
 
 =head1 VERSION
 
-version 5.003
+version 5.004
 
 =head1 OVERVIEW
 
