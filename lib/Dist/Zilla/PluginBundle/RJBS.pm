@@ -1,53 +1,53 @@
 package Dist::Zilla::PluginBundle::RJBS;
 # ABSTRACT: BeLike::RJBS when you build your dists
-$Dist::Zilla::PluginBundle::RJBS::VERSION = '5.004';
+$Dist::Zilla::PluginBundle::RJBS::VERSION = '5.005';
 use Moose;
 use Moose::Autobox;
 use Dist::Zilla 2.100922; # TestRelease
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
-# =head1 DESCRIPTION
-#
-# This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
-#
-#   [Git::GatherDir]
-#   [@Basic]
-#   ; ...but without GatherDir and ExtraTests and MakeMaker
-#
-#   [MakeMaker]
-#   default_jobs = 9
-#
-#   [AutoPrereqs]
-#   [Git::NextVersion]
-#   [PkgVersion]
-#   die_on_existing_version = 1
-#   die_on_line_insertion   = 1
-#   [MetaConfig]
-#   [MetaJSON]
-#   [NextRelease]
-#
-#   [Test::ChangesHasContent]
-#   [PodSyntaxTests]
-#   [ReportVersions::Tiny]
-#
-#   [PodWeaver]
-#   config_plugin = @RJBS
-#
-#   [GithubMeta]
-#   remote = github
-#   remote = origin
-#
-#   [@Git]
-#   tag_format = %v
-#
-# If the C<task> argument is given to the bundle, PodWeaver is replaced with
-# TaskWeaver and Git::NextVersion is replaced with AutoVersion.  If the
-# C<manual_version> argument is given, AutoVersion is omitted.
-#
-# If the C<github_issues> argument is given, and true, the F<META.*> files will
-# point to GitHub issues for the dist's bugtracker.
-#
-# =cut
+#pod =head1 DESCRIPTION
+#pod
+#pod This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
+#pod
+#pod   [Git::GatherDir]
+#pod   [@Basic]
+#pod   ; ...but without GatherDir and ExtraTests and MakeMaker
+#pod
+#pod   [MakeMaker]
+#pod   default_jobs = 9
+#pod
+#pod   [AutoPrereqs]
+#pod   [Git::NextVersion]
+#pod   [PkgVersion]
+#pod   die_on_existing_version = 1
+#pod   die_on_line_insertion   = 1
+#pod   [MetaConfig]
+#pod   [MetaJSON]
+#pod   [NextRelease]
+#pod
+#pod   [Test::ChangesHasContent]
+#pod   [PodSyntaxTests]
+#pod   [Test::ReportPrereqs]
+#pod
+#pod   [PodWeaver]
+#pod   config_plugin = @RJBS
+#pod
+#pod   [GithubMeta]
+#pod   remote = github
+#pod   remote = origin
+#pod
+#pod   [@Git]
+#pod   tag_format = %v
+#pod
+#pod If the C<task> argument is given to the bundle, PodWeaver is replaced with
+#pod TaskWeaver and Git::NextVersion is replaced with AutoVersion.  If the
+#pod C<manual_version> argument is given, AutoVersion is omitted.
+#pod
+#pod If the C<github_issues> argument is given, and true, the F<META.*> files will
+#pod point to GitHub issues for the dist's bugtracker.
+#pod
+#pod =cut
 
 use Dist::Zilla::PluginBundle::Basic;
 use Dist::Zilla::PluginBundle::Filter;
@@ -79,6 +79,12 @@ has github_issues => (
   isa     => 'Bool',
   lazy    => 1,
   default => sub { $_[0]->payload->{github_issues} // 1 },
+);
+
+has homepage => (
+  is      => 'ro',
+  isa     => 'Str',
+  predicate => 'has_homepage',
 );
 
 has weaver_config => (
@@ -160,7 +166,7 @@ sub configure {
       NextRelease
       Test::ChangesHasContent
       PodSyntaxTests
-      ReportVersions::Tiny
+      Test::ReportPrereqs
     ),
   );
 
@@ -187,6 +193,7 @@ sub configure {
     [ GithubMeta => {
       remote => [ qw(github origin) ],
       issues => $self->github_issues,
+      ($self->has_homepage ? (homepage => $self->homepage) : ()),
     } ],
   );
 
@@ -216,7 +223,7 @@ Dist::Zilla::PluginBundle::RJBS - BeLike::RJBS when you build your dists
 
 =head1 VERSION
 
-version 5.004
+version 5.005
 
 =head1 DESCRIPTION
 
@@ -240,7 +247,7 @@ This is the plugin bundle that RJBS uses.  It is more or less equivalent to:
 
   [Test::ChangesHasContent]
   [PodSyntaxTests]
-  [ReportVersions::Tiny]
+  [Test::ReportPrereqs]
 
   [PodWeaver]
   config_plugin = @RJBS
